@@ -16,7 +16,7 @@ const index = () => {
             <nav className="navbar navbar-light bg-light">
                 <a className="navbar-brand" href="#">
                     <img src={GDrivelogo} width="40" height="40" className="d-inline-block align-top" alt="" />
-                    <span>Drive</span>
+                    <span className="drive">Drive</span>
                 </a>
                 <form className="form-inline">
                     <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
