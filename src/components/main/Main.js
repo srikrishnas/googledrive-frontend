@@ -13,7 +13,7 @@ const Main = () => {
                     <Sidebar />
                     <FilesView />
                 </div>
-                ** refresh and login again your file will be visible (**Work Under Progress**)
+                ** refresh again your file will be visible (**Work Under Progress**)
             </>
     )
 }

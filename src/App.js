@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Switch, Route, BrowserRouter as Router, Redirect } from "react-router-dom"
 
 import FilesView from './components/filesView/FilesView';
@@ -50,6 +50,7 @@ function App() {
     setToken(null);
     setIsLoggedIn(false);
     localStorage.removeItem("auth_token")
+    localStorage.removeItem("user")
   }
 
   const handleLogin = (name, token) => {
@@ -57,7 +58,19 @@ function App() {
     setToken(token);
     setIsLoggedIn(true);
     localStorage.setItem("auth_token", token);
+    localStorage.setItem("user",name)
   }
+
+  const getToken = () => {
+    var token = localStorage.getItem('auth_token');
+    var name = localStorage.getItem('user');
+    setUser(name);
+    setToken(token);
+  }
+
+  useEffect(() => {
+    getToken()
+  })
 
 
   return (
@@ -85,9 +98,7 @@ function App() {
 
           {
             user ? (
-              <>
                 <Route exact path="/mainpage" component={Main}/>
-              </>
             ) : (
               <Route exact path="/" component={Landing} />
             )
